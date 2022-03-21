@@ -1,0 +1,71 @@
+# Two ways of disable a rule
+
+# By block
+# rubocop:disable RuleByName, AnotherRuleByName
+# This is a long line
+# rubocop:enable RuleByName, AnotherRuleByName
+
+# By adding at the end of the line
+# rubocop:disable Metrics/BlockLength, Style/AsciiComments
+
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+    - 'lib/generators/**/*'
+    - '**/*.html.erb'
+    - '**/*.erb'
+    - 'Rakefile'
+    - 'config.ru'
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    attributes:
+      - attribute
+      - attr_reader
+      - attr_writer
+      - attr_accessor
+    associations:
+      - has_one_attached
+      - has_one
+      - belongs_to
+      - has_many
+      - has_and_belongs_to_many
+    validations:
+      - validates_presence_of
+      - validates_uniqueness_of
+      - validates
+      - validate
+    hooks:
+      - before_create
+      - before_update
+      - before_save
+      - before_destroy
+      - after_save
+      - after_create
+      - after_initialize
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - attributes
+    - enum
+    - associations
+    - accepts_nested_attributes_for
+    - validations
+    - hooks
+    - scope
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
