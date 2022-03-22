@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class="col-md-12">
+    <table class='github-repositories'>
+      <thead>
+        <tr>
+          <th class='text-center'>Name</th>
+          <th class='text-center'>Owner</th>
+          <th class='text-center'>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @results['items']&.each do |result| %>
+          <tr>
+            <td class='text-center'><%= result['full_name'] %></td>
+            <td class='text-center'><%= result['owner']['login'] %></td>
+            <td class='text-center'><%= result['html_url'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

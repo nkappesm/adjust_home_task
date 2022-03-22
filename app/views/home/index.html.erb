@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class="col-md-12">
+    <%= form_tag('home/search_repositories', format: :js, method: :get, remote: true) do %>
+      <%= label_tag('search terms:') %>
+      <%= text_field_tag(:search_query) %>
+      <%= label_tag('page:') %>
+      <%= number_field_tag(:page, 1, min: 1) %>
+      <%= submit_tag('Search') %>
+    <% end %>
+  </div>
+</div>
+<div id='results'>
+  <%= render :partial => 'search_results' %>
+</div>
